@@ -4,16 +4,8 @@ Class {
 	#category : #BaselineOfTheDominionBible
 }
 
-{ #category : #baseline }
-BaselineOfTheDominionBible >> baseline: spec [
-	<baseline>
-		^ spec for: #common do: [
-			spec package: 'TheDominionBible'
-		]
-]
-
-{ #category : #'as yet unclassified' }
-BaselineOfTheDominionBible >> loadLepiter [
+{ #category : #lepiter }
+BaselineOfTheDominionBible class >> loadLepiter [
 	IceRepository registry  
 		detect: [ :aRepository |
 			aRepository name = 'The-Dominion-Bible' ]
@@ -25,4 +17,12 @@ BaselineOfTheDominionBible >> loadLepiter [
 			defaultDatabase reload ]
 		ifNone: [
 			self inform: 'Repository not found.' ]
+]
+
+{ #category : #baseline }
+BaselineOfTheDominionBible >> baseline: spec [
+	<baseline>
+		^ spec for: #common do: [
+			spec package: 'TheDominionBible'
+		]
 ]
