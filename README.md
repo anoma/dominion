@@ -7,9 +7,9 @@ Welcome citizen to the Dominion. This document serves as a bible for those who w
 
 ```st
 Metacello new
-	repository: '';
-	baseline: 'TheDominionBible';
-	load
+  repository: 'github://anoma/dominion:base/src';
+  baseline: 'TheDominionBible';
+  load
 ```
 
 ### Load Lepiter

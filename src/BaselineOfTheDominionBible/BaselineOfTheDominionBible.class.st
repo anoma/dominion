@@ -6,17 +6,16 @@ Class {
 
 { #category : #lepiter }
 BaselineOfTheDominionBible class >> loadLepiter [
-	IceRepository registry  
-		detect: [ :aRepository |
-			aRepository name = 'The-Dominion-Bible' ]
+	IceRepository registry
+		detect: [ :aRepository | aRepository name = 'dominion' ]
 		ifFound: [ :aRepository | 
 			| defaultDatabase currentProperties |
 			defaultDatabase := LeDatabasesRegistry defaultLogicalDatabase.
 			currentProperties := defaultDatabase properties.
-			currentProperties addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
+			currentProperties
+				addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
 			defaultDatabase reload ]
-		ifNone: [
-			self inform: 'Repository not found.' ]
+		ifNone: [ self inform: 'Repository not found.' ]
 ]
 
 { #category : #baseline }
