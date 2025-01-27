@@ -11,3 +11,10 @@ Metacello new
 	baseline: 'TheDominionBible';
 	load
 ```
+
+### Load Lepiter
+After installing with Metacello, you will be able to execute
+
+```
+#BaselineOfTheDominionBible asClass loadLepiter
+```

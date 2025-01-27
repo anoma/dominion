@@ -11,3 +11,18 @@ BaselineOfTheDominionBible >> baseline: spec [
 			spec package: 'TheDominionBible'
 		]
 ]
+
+{ #category : #'as yet unclassified' }
+BaselineOfTheDominionBible >> loadLepiter [
+	IceRepository registry  
+		detect: [ :aRepository |
+			aRepository name = 'The-Dominion-Bible' ]
+		ifFound: [ :aRepository | 
+			| defaultDatabase currentProperties |
+			defaultDatabase := LeDatabasesRegistry defaultLogicalDatabase.
+			currentProperties := defaultDatabase properties.
+			currentProperties addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
+			defaultDatabase reload ]
+		ifNone: [
+			self inform: 'Repository not found.' ]
+]
